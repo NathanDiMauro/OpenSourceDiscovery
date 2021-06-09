@@ -1,0 +1,23 @@
+{
+  "name": "opensourcediscovery",
+  "version": "1.0.0",
+  "description": "An open source project discovery site",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanDiMauro/OpenSourceDiscovery.git"
+  },
+  "author": "Nathan DiMauro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanDiMauro/OpenSourceDiscovery/issues"
+  },
+  "homepage": "https://github.com/NathanDiMauro/OpenSourceDiscovery#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
