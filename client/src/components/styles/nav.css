@@ -1,0 +1,12 @@
+.nav{
+    background-color: black;
+    color: white;
+    float: left;
+    clear: right;
+    width: 100%
+  }
+.nav li{
+    float: left;
+    width: 10%;
+    font-size: 2vw;
+}
