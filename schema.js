@@ -25,12 +25,23 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     repository: {
       type: repositoryType,
+      args: {
+        repo: {type: GraphQLString}
+      },
       resolve(parent, args) {
         return axios
-          .get(`https://api.spacexdata.com/v3/launches/${args.flight_number}`)
+          .get(`https://api.github.com/repos/asurion/${args.repo}`)
           .then(res => res.data);
       }
-    }
+    },
+    repositories: {
+      type: new GraphQLList(repositoryType),
+      resolve(parent, args) {
+        return axios
+          .get('https://api.github.com/orgs/asurion/repos')
+          .then(res => res.data);
+      }
+    },
   }
 });
 

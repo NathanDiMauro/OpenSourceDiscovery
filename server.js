@@ -1,9 +1,20 @@
 const express = require('express');
-const app = express();
-const port = process.env.PORT || 5000;
+const {graphqlHTTP} = require('express-graphql');
+const schema = require('./schema');
 
-// console.log that your server is up and running
-app.listen(port, () => console.log(`Listening on port ${port}`));
+const app = express();
+
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    graphiql: true
+  })
+);
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 // create a GET route
 app.get('/express_backend', (req, res) => {
