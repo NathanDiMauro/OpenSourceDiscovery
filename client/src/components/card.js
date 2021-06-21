@@ -9,12 +9,11 @@ class OpenCard extends React.Component {
         <Card border="dark" style={{ width: '18rem' }}>
         <Card.Img variant="top" src={placeHolder} />
         <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>{this.props.title}-<a href={this.props.ownerUrl} target="_blank">{this.props.owner}</a></Card.Title>
             <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+            {this.props.description}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button variant="primary" href={this.props.url} target="_blank">View on Github</Button>
         </Card.Body>
         </Card>)
     }
