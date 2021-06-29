@@ -11,9 +11,10 @@ class Navigation extends React.Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-            <Nav.Link><Link style={linkStyle} to="/">Home</Link></Nav.Link>
-            <Nav.Link><Link style={linkStyle} to="/users">Users</Link></Nav.Link>
-            <Nav.Link><Link style={linkStyle} to="/contact">Contact</Link></Nav.Link>
+              <Nav.Link><Link style={linkStyle} to="/">Home</Link></Nav.Link>
+              <Nav.Link><Link style={linkStyle} to="/users">Users</Link></Nav.Link>
+              <Nav.Link><Link style={linkStyle} to="/contact">Contact</Link></Nav.Link>
+              <Nav.Link><Link style={linkStyle} to="/projects">Projects</Link></Nav.Link>
             </Nav>
         </Navbar.Collapse>
         </Navbar>)

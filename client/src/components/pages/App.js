@@ -1,5 +1,5 @@
 import React from 'react'
-import OpenCard from '../card'
+import RepoCard from '../card'
 class App extends React.Component {
   state = {
     data: null
@@ -25,12 +25,6 @@ class App extends React.Component {
       <div>
         <h1>Home</h1>
         <p className="App-intro">{this.state.data}</p>
-        <OpenCard />
-        <OpenCard />
-        <OpenCard />
-        <OpenCard />
-        <OpenCard />
-        <OpenCard />
       </div>
     )
   }

@@ -28,7 +28,7 @@ const ownerType = new GraphQLObjectType({
   name: 'owner',
   fields: () => ({
     login: {type: GraphQLString },
-    url: {type: GraphQLString }
+    html_url: {type: GraphQLString }
   })
 });
 
@@ -82,9 +82,12 @@ const RootQuery = new GraphQLObjectType({
     },
     repositories: {
       type: new GraphQLList(repositoryType),
+      args: {
+        owner: {type: GraphQLString}
+      },
       resolve(parent, args) {
         return axios
-          .get('https://api.github.com/orgs/asurion/repos')
+          .get(`https://api.github.com/orgs/${args.owner}/repos`)
           .then(res => res.data);
       }
     },

@@ -1,5 +1,5 @@
 import React from 'react'
-import OpenCard from '../card'
+import RepoCard from '../card'
 import {
     ApolloClient,
     InMemoryCache,
@@ -79,14 +79,14 @@ function ExchangeRates() {
     }
     return (
     <div>
-      <OpenCard title={data.organization.repositories.nodes[0].name} ownerUrl={data.organization.repositories.nodes[0].owner.url} 
+      <RepoCard title={data.organization.repositories.nodes[0].name} ownerUrl={data.organization.repositories.nodes[0].owner.url} 
       owner={data.organization.repositories.nodes[0].owner.login} description={data.organization.repositories.nodes[0].description} 
       url={data.organization.repositories.nodes[0].url } />
 
       
-      <h4>{data.organization.repositories.nodes[0].name}| From: <a href={data.organization.repositories.nodes[0].owner.url} target="_blank"> {data.organization.repositories.nodes[0].owner.login} </a> |Created: {data.organization.repositories.nodes[0].createdAt}</h4>
+      <h4>{data.organization.repositories.nodes[0].name}| From: <a href={data.organization.repositories.nodes[0].owner.url} target="_blank" rel="noreferrer"> {data.organization.repositories.nodes[0].owner.login} </a> |Created: {data.organization.repositories.nodes[0].createdAt}</h4>
       <p>{data.organization.repositories.nodes[0].description}</p>
-      <a href={data.organization.repositories.nodes[0].url} target="_blank">github link</a>
+      <a href={data.organization.repositories.nodes[0].url} target="_blank" rel="noreferrer">github link</a>
       <h5>Lanuages: </h5>
       <ul>
         <li>{data.organization.repositories.nodes[0].languages.nodes[0].name}</li>
