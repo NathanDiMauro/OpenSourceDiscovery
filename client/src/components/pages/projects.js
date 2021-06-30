@@ -20,13 +20,10 @@ function Repos() {
         name,
         html_url, 
         description,
-        created_at,
-        updated_at,
         owner{
         login,
         html_url
         },
-        languages_url,
     }
   }
   `;
