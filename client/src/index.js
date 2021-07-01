@@ -13,7 +13,7 @@ const routing = (
   <Navigation />
       <Route exact path="/" component={App} />
       <Route path="/projects" component={Projects} />
-      <Route path="/repo/*" component={Repo} />
+      <Route path="/repo/:repoName" component={Repo} />
   </Router>
 )
 

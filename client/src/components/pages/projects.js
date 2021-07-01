@@ -16,7 +16,7 @@ const client = new ApolloClient({
 function Repos() {
   const REPOS = gql`
   query repos {
-    repositories(owner: "google"){
+    repositories{
         name,
         html_url, 
         description,

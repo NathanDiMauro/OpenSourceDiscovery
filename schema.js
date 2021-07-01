@@ -9,6 +9,8 @@ const {
   GraphQLSchema
 } = require('graphql');
 
+const org = require('./config.json').org
+
 // Repository Type
 const repositoryType = new GraphQLObjectType({
   name: 'repository',
@@ -76,18 +78,15 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args) {
         return axios
-          .get(`https://api.github.com/repos/asurion/${args.repo}`)
-          .then(res => res.data);
+          .get(`https://api.github.com/repos/${org}/${args.repo}`)
+          .then(res => res.data)
       }
     },
     repositories: {
       type: new GraphQLList(repositoryType),
-      args: {
-        owner: {type: GraphQLString}
-      },
       resolve(parent, args) {
         return axios
-          .get(`https://api.github.com/orgs/${args.owner}/repos`)
+          .get(`https://api.github.com/orgs/${org}/repos`)
           .then(res => res.data);
       }
     },
@@ -98,7 +97,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args){
         return axios
-          .get(`https://api.github.com/repos/asurion/${args.repo}/languages`)
+          .get(`https://api.github.com/repos/${org}/${args.repo}/languages`)
           .then(res => res.data)
           .then(data => Object.keys(data).map(key => {return {name:key}}))
       }
@@ -110,7 +109,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args){
         return axios
-          .get(`https://api.github.com/repos/asurion/${args.repo}/contributors`)
+          .get(`https://api.github.com/repos/${org}/${args.repo}/contributors`)
           .then(res => res.data)
       }
     },
@@ -126,7 +125,7 @@ const RootQuery = new GraphQLObjectType({
           }
         }
         return axios
-          .get(`https://api.github.com/repos/asurion/${args.repo}/topics`, config)
+          .get(`https://api.github.com/repos/${org}/${args.repo}/topics`, config)
           .then(res => res.data)
       }
     },
@@ -137,7 +136,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args){
         return axios
-          .get(`https://api.github.com/repos/asurion/${args.repo}/readme`)
+          .get(`https://api.github.com/repos/${org}/${args.repo}/readme`)
           .then(res => res.data)
       }
     }
