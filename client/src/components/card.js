@@ -11,7 +11,7 @@ class RepoCard extends React.Component {
                 <Link style={linkStyle} to={'repo/'+this.props.title}>
                     <Card.Img variant="top" src={placeHolder} />
                 </Link>
-                <Card.Body>
+                <Card.Body style={cardBodyStyle}>
                     <Link style={linkStyle} to={'repo/'+this.props.title}>
                         <Card.Title style={titleStyle}>{this.props.title}</Card.Title>
                         <Card.Text>
@@ -29,6 +29,10 @@ export default RepoCard
 const linkStyle = {
     color: "black",
     "text-decoration": "none"
+  }
+
+const cardBodyStyle = {
+    "height": "250px"
   }
 
 const buttonStyle = {
