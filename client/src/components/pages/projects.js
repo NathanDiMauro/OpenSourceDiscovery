@@ -1,5 +1,7 @@
 import React from 'react'
-import RepoCards from '../cards'
+import RepoCard from '../card'
+import CardDeck from 'react-bootstrap/CardDeck'
+import CardColumns from 'react-bootstrap/CardColumns'
 import {
     ApolloClient,
     InMemoryCache,
@@ -36,43 +38,29 @@ function Repos() {
   }
   if (data) {
     var cards=[]
-    var titles=[]
-    var ownerUrls=[]
-    var owners=[]
-    var descriptions=[]
-    var urls=[]
     
     for(let index=0; index<data.repositories.length; index++){
         var repo=data.repositories[index]
         console.log(repo)
 
-        titles.push(repo.name)
-        ownerUrls.push(repo.owner.html_url)
-        owners.push(repo.owner.login)
-        descriptions.push(repo.description)
-        urls.push(repo.html_url)
-       
-        if (index%3===0 && index!==0 && index!==1)
-        {
-            cards.push(<RepoCards titles={titles} ownerUrls={ownerUrls} 
-            owners={owners} descriptions={descriptions} 
-            urls={urls} />);
-            
-            titles=[]
-            ownerUrls=[]
-            owners=[]
-            descriptions=[]
-            urls=[]
-        }
+        cards.push(<RepoCard title={repo.name} ownerUrls={repo.owner.html_url} 
+            owner={repo.owner.login} description={repo.description} 
+            url={repo.html_url} />)
+      
     }
-  }
-
     return (
-        <>
-            {cards}
-        </>
-    );
+      <CardColumns style={cardColStyle}>
+        {cards}
+      </CardColumns>
+      )
+  }
 }
+
+const cardColStyle = {
+  "margin-left": "2%",
+  "margin-right": "5%"
+}
+
 class Projects extends React.Component {
   render() {
     return (
