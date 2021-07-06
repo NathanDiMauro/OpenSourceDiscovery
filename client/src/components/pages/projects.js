@@ -1,6 +1,5 @@
 import React from 'react'
 import RepoCard from '../card'
-import CardDeck from 'react-bootstrap/CardDeck'
 import CardColumns from 'react-bootstrap/CardColumns'
 import {
     ApolloClient,
