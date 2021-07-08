@@ -18,7 +18,6 @@ class RepoCard extends React.Component {
                             {this.props.description}
                         </Card.Text>
                     </Link>
-                    <Button variant="primary" href={this.props.url} target="_blank" rel="noreferrer">View on Github</Button>
                     <Button style={buttonStyle} variant="primary" href={'repo/'+this.props.title}>View on AOS</Button>
                 </Card.Body>
             </Card>)
@@ -36,7 +35,7 @@ const cardBodyStyle = {
   }
 
 const buttonStyle = {
-    "margin-left": "15px",
+    "margin-top": "5%",
 }
 
 const cardStyle = {
