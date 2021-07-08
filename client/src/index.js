@@ -12,16 +12,13 @@ import Navigation from "./components/nav"
 const Routs = () => (
   <Router>
   <Navigation />
-    <switch>
-      <Route exact path="/" component={App} />
-      <Route path="/projects" component={Projects} />
-      <Route path="/repo/:repoName" component={Repo} />
-      <Route path="/404" component={NotFound} />
-      <Route path="*">
-          <Redirect to="/404" />
-      </Route>
-    </switch>
-
+    <Route exact path="/" component={App} />
+    <Route path="/projects" component={Projects} />
+    <Route path="/repo/:repoName" component={Repo} />
+    <Route path="/404" component={NotFound} />
+    <Route path="*">
+        <Redirect to="/404" />
+    </Route>
   </Router>
 )
 
