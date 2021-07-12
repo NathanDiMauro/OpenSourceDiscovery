@@ -1,4 +1,7 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import {
     ApolloClient,
     InMemoryCache,
@@ -11,6 +14,32 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
   uri: 'http://localhost:5000/graphql'
 });
+
+function GetReadMe(props){
+  const README = gql`
+  query readme{
+    readme(repo: "${props.repoName}") {
+      html_url,
+      content
+    }
+  }`;
+  const { loading, error, data } = useQuery(README);
+  
+  if (loading) return <p>Loading...</p>;
+  if (error) { 
+      console.log(error);
+      return <p>Error :(</p>;
+  }
+  if (data) {
+    console.log(window.atob(data.readme.content));
+    return (
+      <div>
+        <p>Description goes here</p>
+        <p>{window.atob(data.readme.content)}</p>
+      </div>
+    );
+  }
+}
 
 function GetRepo(props) {
   const REPOS = gql`
@@ -35,11 +64,34 @@ function GetRepo(props) {
       return <p>Error :(</p>;
   }
   if (data) {
-    console.log(props.repoName)
+    const repo = data.repository
+    const update = new Date(repo.updated_at)
     return (
-        <h3>Check Console</h3>
+      <div>
+        <Container>
+          <Row style={titleStyle}>
+            <Col>
+              <h2>{props.repoName}</h2>
+            </Col>
+            <Col>
+              <p style={updateStyle}>Last updated on {update.toDateString()}</p>
+            </Col>
+          </Row>
+        </Container>
+        <a href={repo.html_url} target="_blank" rel="noreferrer">github.com/{props.repoName}</a>
+        <GetReadMe repoName={props.repoName}/>
+      </div>
     );
   }
+}
+
+const titleStyle = {
+  "padding-top": "3%",
+}
+
+const updateStyle = {
+  "padding-top": "2%",
+  "font-weight": "bold",
 }
 
 function GetLanuages(props) {
@@ -61,7 +113,6 @@ function GetLanuages(props) {
     
     for(let index=0; index<data.languages.length; index++){
       var langNames = data.languages[index].name
-      console.log(langNames)
 
       languages.push(<p>{langNames}</p>)
     }
@@ -89,11 +140,9 @@ function GetTopics(props) {
   }
   if (data) {
     var topics=[]
-    console.log(data.topics.names[0])
     
     for(let index=0; index<data.topics.names.length; index++){
       var topicNames = data.topics.names[index]
-      console.log(topicNames)
 
       topics.push(<p>{topicNames}</p>)
     }
@@ -109,29 +158,26 @@ class Repo extends React.Component {
     render() {
         return (
           <ApolloProvider client={client}>
-            <h2>Repo: {this.props.match.params.repoName}</h2>
-            <GetRepo style={midStyle} repoName={this.props.match.params.repoName}/>
-            
-            <div style={sideStyle}>
-              <h4>Lanuages:</h4>
-              <GetLanuages repoName={this.props.match.params.repoName}/>
-              <h4>Topics:</h4>
-              <GetTopics repoName={this.props.match.params.repoName}/>
-            </div>
+            <Container>
+              <Row>
+                <Col lg={10}>
+                  <GetRepo repoName={this.props.match.params.repoName}/>
+                </Col>
+                <Col style={sideStyle}>
+                    <h4>Lanuages:</h4>
+                    <GetLanuages repoName={this.props.match.params.repoName}/>
+                    <h4>Topics:</h4>
+                    <GetTopics repoName={this.props.match.params.repoName}/>
+                </Col>
+              </Row>
+            </Container> 
           </ApolloProvider>
     )}
 }
 
 export default Repo
 
-const midStyle = {
-  "float":"left"
-}
-
 const sideStyle = {
-  "margin-left": "80%",
-  "margin-right": "5%",
-  "padding-left": "20px",
-  "padding-bottom": "20%",
-  "border-left": "4px solid black"
+  "padding-top": "10%",
+  "border-left": "4px solid black",
 }

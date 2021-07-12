@@ -10,6 +10,7 @@ const {
 } = require('graphql');
 
 const org = require('./config.json').org
+const token = require('./config.json').token
 
 // Repository Type
 const repositoryType = new GraphQLObjectType({
@@ -78,7 +79,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args) {
         return axios
-          .get(`https://api.github.com/repos/${org}/${args.repo}`)
+          .get(`https://api.github.com/repos/${org}/${args.repo}`, {headers: {'Authorization':token}})
           .then(res => res.data)
       }
     },
@@ -86,7 +87,7 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(repositoryType),
       resolve(parent, args) {
         return axios
-          .get(`https://api.github.com/orgs/${org}/repos`)
+          .get(`https://api.github.com/orgs/${org}/repos`, {headers: {'Authorization':token}})
           .then(res => res.data);
       }
     },
@@ -97,7 +98,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args){
         return axios
-          .get(`https://api.github.com/repos/${org}/${args.repo}/languages`)
+          .get(`https://api.github.com/repos/${org}/${args.repo}/languages`, {headers: {'Authorization':token}})
           .then(res => res.data)
           .then(data => Object.keys(data).map(key => {return {name:key}}))
       }
@@ -109,7 +110,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args){
         return axios
-          .get(`https://api.github.com/repos/${org}/${args.repo}/contributors`)
+          .get(`https://api.github.com/repos/${org}/${args.repo}/contributors`, {headers: {'Authorization':token}})
           .then(res => res.data)
       }
     },
@@ -122,6 +123,7 @@ const RootQuery = new GraphQLObjectType({
         let config = {
           headers: {
             Accept: "application/vnd.github.mercy-preview",
+            'Authorization': token
           }
         }
         return axios
@@ -136,7 +138,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args){
         return axios
-          .get(`https://api.github.com/repos/${org}/${args.repo}/readme`)
+          .get(`https://api.github.com/repos/${org}/${args.repo}/readme`,{headers: {'Authorization':token}})
           .then(res => res.data)
       }
     }

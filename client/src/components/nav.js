@@ -30,6 +30,9 @@ const linkStyle = {
   "font-size": "150%",
 }
 
+const cardStyle = {
+  "margin-top": "15px",
+}
 const little = {
   "font-size": "70%",
 }

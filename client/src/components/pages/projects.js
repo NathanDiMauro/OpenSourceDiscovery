@@ -1,6 +1,7 @@
 import React from 'react'
 import RepoCard from '../card'
 import CardColumns from 'react-bootstrap/CardColumns'
+import {Link} from 'react-router-dom'
 import {
     ApolloClient,
     InMemoryCache,
@@ -64,7 +65,6 @@ class Projects extends React.Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <h2>Pulling from my backend GraphQL</h2>
         <Repos />
       </ApolloProvider>
     )}
