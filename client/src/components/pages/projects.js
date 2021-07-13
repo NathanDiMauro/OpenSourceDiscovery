@@ -14,10 +14,10 @@ const client = new ApolloClient({
   uri: 'http://localhost:5000/graphql'
 });
 
-function Repos() {
+function Repos(args) {
   const REPOS = gql`
   query repos {
-    repositories(pgNum: 2){
+    repositories(pgNum: ${args.pgNum}){
         name,
         html_url, 
         description,
@@ -61,11 +61,41 @@ const cardColStyle = {
 }
 
 class Projects extends React.Component {
+  constructor (props){
+    super(props);
+    
+    this.state = {
+      output: [],
+      page: 1
+    }
+    
+    this.loadMore = this.loadMore.bind(this);
+  }
+
+  componentDidMount() {
+    this.loadMore()
+  }
+
+  loadMore(){
+    this.setState({page: this.state.page+1});
+    let temp = this.state.output
+    temp.push(<Repos pgNum={this.state.page}/>);
+    this.setState({output: temp});
+    console.log(this.state);
+  }
   render() {
+    console.log("rendering...",this.state)
     return (
       <ApolloProvider client={client}>
-        <Repos />
+        <div>
+          {this.state.output}
+        </div>
+        <button style={buttonStyle} onClick={this.loadMore}>Load more</button>
       </ApolloProvider>
     )}
 }
 export default Projects
+
+const buttonStyle = {
+  "margin-left": "3%",
+}
