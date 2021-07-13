@@ -5,9 +5,7 @@ import {Link} from 'react-router-dom'
 class RepoCard extends React.Component {
     render(){
         let description = this.props.description
-        if (description && description.length >= 150)
-        {
-            console.log("test")
+        if (description && description.length >= 150) {
             description = description.substring(0,150)+"..."
         }
         return(
