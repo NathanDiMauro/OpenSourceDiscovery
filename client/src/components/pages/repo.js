@@ -86,12 +86,12 @@ function GetRepo(props) {
 }
 
 const titleStyle = {
-  "padding-top": "3%",
+  "paddingTop": "3%",
 }
 
 const updateStyle = {
-  "padding-top": "2%",
-  "font-weight": "bold",
+  "paddingTop": "2%",
+  "fontWeight": "bold",
 }
 
 function GetLanuages(props) {
@@ -178,6 +178,6 @@ class Repo extends React.Component {
 export default Repo
 
 const sideStyle = {
-  "padding-top": "10%",
-  "border-left": "4px solid black",
+  "paddingTop": "10%",
+  "borderLeft": "4px solid black",
 }

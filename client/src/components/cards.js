@@ -37,7 +37,7 @@ export default RepoCards
 
 const linkStyle = {
     color: "black",
-    "text-decoration": "none"
+    "textDecoration": "none"
   }
 
 const buttonStyle = {

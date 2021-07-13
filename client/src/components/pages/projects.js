@@ -56,8 +56,8 @@ function Repos(args) {
 }
 
 const cardColStyle = {
-  "margin-left": "2%",
-  "margin-right": "5%"
+  "marginLeft": "2%",
+  "marginRight": "5%"
 }
 
 class Projects extends React.Component {
@@ -81,10 +81,8 @@ class Projects extends React.Component {
     let temp = this.state.output
     temp.push(<Repos pgNum={this.state.page}/>);
     this.setState({output: temp});
-    console.log(this.state);
   }
   render() {
-    console.log("rendering...",this.state)
     return (
       <ApolloProvider client={client}>
         <div>
@@ -97,5 +95,5 @@ class Projects extends React.Component {
 export default Projects
 
 const buttonStyle = {
-  "margin-left": "3%",
+  "marginLeft": "3%",
 }

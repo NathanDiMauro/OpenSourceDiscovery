@@ -1,5 +1,4 @@
 import React from 'react'
-import RepoCard from '../card'
 class App extends React.Component {
   render() {
     return (

@@ -27,25 +27,25 @@ export default RepoCard
 
 const linkStyle = {
     color: "black",
-    "text-decoration": "none",
+    "textDecoration": "none",
     "cursor": "default",
   }
 
 const cardBodyStyle = {
     "height": "250px",
-    "background-color": "#c9c9c9",
+    "backgroundColor": "#c9c9c9",
   }
 
 const buttonStyle = {
-    "margin-top": "5%",
-    "background-color": "blueviolet",
-    "border-color": "blueviolet",
+    "marginTop": "5%",
+    "backgroundColor": "blueviolet",
+    "borderColor": "blueviolet",
 }
 
 const cardStyle = {
-    "margin-top": "15px",
+    "marginTop": "15px",
 }
 
 const titleStyle = {
-    "font-size": "160%"
+    "fontSize": "160%"
 }

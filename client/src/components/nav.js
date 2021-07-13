@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, BrowserRouter as Router } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
@@ -11,7 +11,7 @@ class Navigation extends React.Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link><Link style={linkStyle} to="/projects">Projects</Link></Nav.Link>
+              <Link style={linkStyle} to="/projects">Projects</Link>
             </Nav>
         </Navbar.Collapse>
         </Navbar>)
@@ -21,18 +21,18 @@ export default Navigation
 
 const brandStyle = {
     color: "blueviolet",
-    "font-size": "200%",
-    "text-decoration": "none"
+    "fontSize": "200%",
+    "textDecoration": "none"
   }
 
 const linkStyle = {
   color: "blueviolet",
-  "font-size": "150%",
+  "fontSize": "150%",
 }
 
 const cardStyle = {
   "margin-top": "15px",
 }
 const little = {
-  "font-size": "70%",
+  "fontSize": "70%",
 }
