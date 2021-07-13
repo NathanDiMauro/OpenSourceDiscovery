@@ -2,9 +2,14 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import {Link} from 'react-router-dom'
-
 class RepoCard extends React.Component {
     render(){
+        let description = this.props.description
+        if (description && description.length >= 150)
+        {
+            console.log("test")
+            description = description.substring(0,150)+"..."
+        }
         return(
             <Link style={linkStyle} to={'repo/'+this.props.title}>
                 <Card border="dark" bg="dark" style={cardStyle}>
@@ -12,7 +17,7 @@ class RepoCard extends React.Component {
                         
                             <Card.Title style={titleStyle}>{this.props.title}</Card.Title>
                             <Card.Text>
-                                {this.props.description}
+                                {description}
                             </Card.Text>
                         <Button style={buttonStyle} href={'repo/'+this.props.title}>View on AOS</Button>
                     </Card.Body>

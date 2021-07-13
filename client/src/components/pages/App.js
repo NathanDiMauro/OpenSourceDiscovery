@@ -23,8 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Home</h1>
-        <p className="App-intro">{this.state.data}</p>
+        <h1>Welcome!</h1>
       </div>
     )
   }

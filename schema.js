@@ -9,8 +9,8 @@ const {
   GraphQLSchema
 } = require('graphql');
 
-const org = require('./config.json').org
-const token = require('./config.json').token
+const org = require('./config.json').org;
+const token = require('./config.json').token;
 
 // Repository Type
 const repositoryType = new GraphQLObjectType({
@@ -85,9 +85,12 @@ const RootQuery = new GraphQLObjectType({
     },
     repositories: {
       type: new GraphQLList(repositoryType),
+      args: {
+        pgNum: {type: GraphQLInt}
+      },
       resolve(parent, args) {
         return axios
-          .get(`https://api.github.com/orgs/${org}/repos`, {headers: {'Authorization':token}})
+          .get(`https://api.github.com/orgs/${org}/repos?page=${args.pgNum}&per_page=66`, {headers: {'Authorization':token}})
           .then(res => res.data);
       }
     },

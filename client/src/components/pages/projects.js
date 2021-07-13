@@ -1,7 +1,6 @@
 import React from 'react'
 import RepoCard from '../card'
 import CardColumns from 'react-bootstrap/CardColumns'
-import {Link} from 'react-router-dom'
 import {
     ApolloClient,
     InMemoryCache,
@@ -18,7 +17,7 @@ const client = new ApolloClient({
 function Repos() {
   const REPOS = gql`
   query repos {
-    repositories{
+    repositories(pgNum: 2){
         name,
         html_url, 
         description,
@@ -37,11 +36,11 @@ function Repos() {
       return <p>Error :(</p>;
   }
   if (data) {
-    var cards=[]
+    let cards=[]
     
     for(let index=0; index<data.repositories.length; index++){
         var repo=data.repositories[index]
-        console.log(repo)
+        //console.log(repo)
 
         cards.push(<RepoCard title={repo.name} ownerUrls={repo.owner.html_url} 
             owner={repo.owner.login} description={repo.description} 
