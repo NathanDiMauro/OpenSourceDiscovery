@@ -1,8 +1,13 @@
 import React from 'react'
+
+const mainStyle={
+  "paddingLeft": "1%",
+  "paddingRight": "1%"
+}
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div style={mainStyle}>
         <h1>Welcome!</h1>
         <p>The goal of this project is to make it easier for Asurion internal employees to find extra projects to work. 
           The work split at Asurion is 80-20 where 80% of an employees time is supposed to be spent on your day to day work. 
@@ -14,12 +19,8 @@ class App extends React.Component {
           It is currently hard to find out what open source projects are being worked on at Asurion. You either have ti hear about it from a 
           coworker or happen to randomly stumble across it while searching through Jira. That is why I have developed this app. I wanted to make it 
           easier for to find projects that might excite people. </p>
-          <h2>Current Features:</h2>
-            <ul>
-              <li>View all repos of an organization</li>
-              <li>Get a specific page of each repo</li>
-            </ul>
-          <h2>Next Features:</h2>
+          
+          <h4>Next Features:</h4>
             <ul>
               <li>Better UI</li>
               <ul>
@@ -33,7 +34,7 @@ class App extends React.Component {
               </ul>
               <li>Search feature</li>
               <ul>
-                <li></li>
+                <li>Add a search feature to allow users to search for repos baasd of lanuages and topics</li>
               </ul>
             </ul>
           

@@ -113,7 +113,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args){
         return axios
-          .get(`https://api.github.com/repos/${org}/${args.repo}/contributors`, {headers: {'Authorization':token}})
+          .get(`https://api.github.com/repos/${org}/${args.repo}/contributors?per_page=100`, {headers: {'Authorization':token}})
           .then(res => res.data)
       }
     },
