@@ -1,8 +1,8 @@
 import React from 'react'
 
 const mainStyle={
-  "paddingLeft": "1%",
-  "paddingRight": "1%"
+  "paddingLeft": "3%",
+  "paddingRight": "5%"
 }
 class App extends React.Component {
   render() {
@@ -29,12 +29,18 @@ class App extends React.Component {
               </ul>
               <li>Documentation</li>
               <ul>
-                <li>This project has been worked on sporadically for the last 2 months. Documentation was not a priority at all. I simply wanted to 
-                  get the basic starting point of the project done and polish it into a presentable state.</li>
+                <li>This project has been worked on sporadically for the last 2 months. Documentation was not a priority at all. I simply wanted 
+                  to get the basic starting point of the project done and polish it into a presentable state.</li>
               </ul>
               <li>Search feature</li>
               <ul>
                 <li>Add a search feature to allow users to search for repos baasd of lanuages and topics</li>
+              </ul>
+              <li>Place ReadMe on repo page</li>
+              <ul>
+                <li>The backend and frontend are already in place to put a repos readme on their repo page. The only issue is that a majority
+                  of readme's are written in markup. We need someway to convert markup to plain text
+                </li>
               </ul>
             </ul>
           

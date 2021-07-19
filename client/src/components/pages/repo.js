@@ -39,6 +39,6 @@ class Repo extends React.Component {
 export default Repo
 
 const sideStyle = {
-  "paddingTop": "10%",
+  "paddingTop": "5%",
   "borderLeft": "4px solid black",
 }

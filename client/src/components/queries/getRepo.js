@@ -7,6 +7,7 @@ import {
     gql
 } from "@apollo/client";
 import GetContributors from '../queries/getContributors';
+import GetReadMe from '../queries/getReadMe'
 
 function GetRepo(props) {
   const REPOS = gql`
