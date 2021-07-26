@@ -14,7 +14,7 @@ const httpLink = createHttpLink({
   uri: 'https://api.github.com/graphql',
 });
 
-localStorage.setItem('token', "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");
+localStorage.setItem('token', "");
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
