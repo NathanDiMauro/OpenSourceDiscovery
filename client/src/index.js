@@ -17,9 +17,7 @@ const Routes = () => (
       <Route path="/projects" component={Projects} />
       <Route path="/repo/:repoName" component={Repo} />
       <Route path="/404" component={NotFound} />
-      <Route path="*">
-          <Redirect to="/404" />
-      </Route>
+      <Route path="*" component={NotFound} />
     </Switch>
   </Router>
 )
