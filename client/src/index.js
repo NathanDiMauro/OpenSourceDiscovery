@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
-import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import App from './components/pages/App'
 import Projects from './components/pages/projects' 
 import Repo from './components/pages/repo' 
