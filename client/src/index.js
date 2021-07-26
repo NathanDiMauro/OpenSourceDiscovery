@@ -9,7 +9,7 @@ import Repo from './components/pages/repo'
 import NotFound from './components/pages/notfound' 
 import Navigation from "./components/nav"
 
-const Routs = () => (
+const Routes = () => (
   <Router>
   <Navigation />
     <Switch>
@@ -24,5 +24,5 @@ const Routs = () => (
   </Router>
 )
 
-ReactDOM.render(<Routs />, document.getElementById('root'))
+ReactDOM.render(<Routes />, document.getElementById('root'))
  

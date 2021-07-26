@@ -39,6 +39,11 @@ function ExchangeRates() {
     organization(login: "asurion") {
       repositories(last: 3) {
         nodes {
+          object(expression: "master:README.md") {
+            ... on Blob {
+                text
+            }
+          }
           name,description,url,createdAt,
           owner{
             login,
