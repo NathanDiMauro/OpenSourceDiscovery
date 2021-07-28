@@ -16,7 +16,7 @@ class App extends React.Component {
           company in some way. There have already been some amazing projects at the company that have come out of thew 80-20 split. Atom 
           for instance has become a cornerstone of Wolfpack operations and was originally developed as a side project. These side projects 
           also help avoid burnout and stress, by giving employees a chance to step away from everyday task and work on something else beneficial. 
-          It is currently hard to find out what open source projects are being worked on at Asurion. You either have ti hear about it from a 
+          It is currently hard to find out what open source projects are being worked on at Asurion. You either have to hear about it from a 
           coworker or happen to randomly stumble across it while searching through Jira. That is why I have developed this app. I wanted to make it 
           easier for to find projects that might excite people. </p>
           
