@@ -12,10 +12,20 @@ The goal of this project is to make it easier for Asurion internal employees to 
    * Documentation
        * This project has been worked on sporadically for the last 2 months. Documentation was not a priority at all. I simply wanted to get the basic starting point of the project done and polish it into a presentable state. 
    * Search feature
+      * Add a search feature to allow users to search for repos baasd of lanuages and topics
+   * Place ReadMe on repo page
+      * The backend and frontend are already in place to put a repos readme on their repo page. The only issue is that a majority of readme's are written in markup. We need someway to convert markup to plain text
 
 ### How to contribute:
    #### Install project
      1. git clone https://github.com/NathanDiMauro/OpenSourceDiscovery.git
+     
+   #### Configure the app:
+   Note: you will need to receive personal access token from github. [Tutorial](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+   
+     1. Open config.json from the root directory of the project
+     2. Add the organization you would like to pull from in the empty quotes in "org":""
+     3. Add you personal access token from github after the space following Bearer in "token": "Bearer "
 
    #### Start back end
      1. npm start 
