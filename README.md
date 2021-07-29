@@ -19,6 +19,13 @@ The goal of this project is to make it easier for Asurion internal employees to 
 ### How to contribute:
    #### Install project
      1. git clone https://github.com/NathanDiMauro/OpenSourceDiscovery.git
+     
+   #### Configure the app:
+   Note: you will need to receive personal access token from github. [Tutorial](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+   
+     1. Open config.json from the root directory of the project
+     2. Add the organization you would like to pull from in the empty quotes in "org":""
+     3. Add you personal access token from github after the space following Bearer in "token": "Bearer "
 
    #### Start back end
      1. npm start 
