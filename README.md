@@ -25,17 +25,16 @@ The goal of this project is to make it easier for Asurion internal employees to 
    #### 2. Configure the app:
    Note: you will need to receive personal access token from github. [Tutorial](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
    
-   1. Run the below command from the root directory of the project
-     
-     echo {\"org\":\"\", \"token\": \"Bearer \"} > config.json
-     
-   2. In config.json add the organization you would like to pull from in the empty quotes in 
-   
-     "org":""
-     
-   3. In config.json add you personal access token from github after the space following Bearer in 
+   1. Create config.js in your root directory and copy the follow structure below
       
-     "token": "Bearer "
+    {
+      "org": "<Organization>",
+      "token": "Bearer <Bearer Token>"
+    }
+     
+   2. Replace `<Organization>` with the name of the organization you would like to pull repos from
+     
+   3. Replace `<Bearer Token>` with you personal access token from github. Make sure to leave the word Bearer.
 
    #### 3. Start back end
      npm install
