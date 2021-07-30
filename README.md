@@ -15,23 +15,33 @@ The goal of this project is to make it easier for Asurion internal employees to 
       * Add a search feature to allow users to search for repos baasd of lanuages and topics
    * Place ReadMe on repo page
       * The backend and frontend are already in place to put a repos readme on their repo page. The only issue is that a majority of readme's are written in markup. We need someway to convert markup to plain text
+   * Stat front end and backend from one command
+      * Write a script in package.json to start front and end back end together. Can use concurrently dev dependency
 
 ### How to contribute:
-   #### Install project
-     1. git clone https://github.com/NathanDiMauro/OpenSourceDiscovery.git
+   #### 1. Install project
+    git clone https://github.com/NathanDiMauro/OpenSourceDiscovery.git
      
-   #### Configure the app:
+   #### 2. Configure the app:
    Note: you will need to receive personal access token from github. [Tutorial](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
    
-     1. Open config.json from the root directory of the project
-     2. Add the organization you would like to pull from in the empty quotes in "org":""
-     3. Add you personal access token from github after the space following Bearer in "token": "Bearer "
+   1. Run the below command from the root directory of the project
+     
+     echo {\"org\":\"\", \"token\": \"Bearer \"} > config.json
+     
+   2. In config.json add the organization you would like to pull from in the empty quotes in 
+   
+     "org":""
+     
+   3. In config.json add you personal access token from github after the space following Bearer in 
+      
+     "token": "Bearer "
 
-   #### Start back end
-     1. npm install (this may take a few minutes)
-     2. npm start 
+   #### 3. Start back end
+     npm install
+     npm start 
 
-   #### Start front end
-      1. cd ./client
-      2. npm install (this may take a few minutes)
-      3. npm start
+   #### 4. Start front end
+      cd ./client
+      npm install
+      npm start
