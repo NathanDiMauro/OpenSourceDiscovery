@@ -28,7 +28,8 @@ The goal of this project is to make it easier for Asurion internal employees to 
      3. Add you personal access token from github after the space following Bearer in "token": "Bearer "
 
    #### Start back end
-     1. npm start 
+     1. npm install (this may take a few minutes)
+     2. npm start 
 
    #### Start front end
       1. cd ./client
